@@ -285,12 +285,12 @@ def ask_words():
     words = []
     for question in WORD_QUESTIONS:
         while True:
-            word = ask(question).strip().lower()
+            word = ask(question).strip()
             if not word.isalpha():
                 print("  Letters only, please (no spaces or numbers).\n")
             elif not MIN_WORD_LEN <= len(word) <= MAX_WORD_LEN:
                 print(f"  Use {MIN_WORD_LEN}-{MAX_WORD_LEN} letters.\n")
-            elif word in words:
+            elif word.lower() in [w.lower() for w in words]:
                 print("  You already used that word. Pick a different one.\n")
             else:
                 words.append(word)
