@@ -379,7 +379,7 @@ def finish(repeatable, level):
 
 # ── Main ────────────────────────────────────────────────────────────────
 
-def main():
+def run_once():
     show_instructions()
     repeatable = choose_mode()
     level = choose_difficulty()
@@ -400,6 +400,15 @@ def main():
     memorise(password)
     recall(password)
     finish(repeatable, level)
+
+
+def main():
+    while True:
+        run_once()
+        if not yes("Go back to the start?"):
+            break
+    clear()
+    print("Goodbye. Nothing was saved.")
 
 
 if __name__ == "__main__":
